@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ділове листування в цифровому середовищі: етикет, структура, реквізити та шаблони</title>
+<meta name="description" content="Сторінка-звіт: чеклист правил ділового листування, обов'язкові реквізити за ДСТУ, порівняльна таблиця «як треба / як не треба», практичні завдання та саморефлексія.">
+<style>
+  :root{
+    --navy:#12355b;
+    --navy-2:#1c4e80;
+    --accent:#e0a13a;
+    --teal:#0f7b6c;
+    --red:#c0392b;
+    --green:#1e8e5a;
+    --ink:#16232e;
+    --muted:#5d707f;
+    --line:#dbe4ec;
+    --bg:#f4f7fb;
+    --card:#ffffff;
+    --radius:14px;
+    --shadow:0 2px 4px rgba(18,53,91,.06), 0 10px 26px rgba(18,53,91,.07);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Segoe UI",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+    font-size:17px;
+    line-height:1.62;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+  /* ---------- HEADER ---------- */
+  header.hero{
+    background:
+      radial-gradient(1200px 400px at 12% -30%, rgba(224,161,58,.30), transparent 60%),
+      linear-gradient(135deg,#0d2846 0%, #12355b 45%, #1c4e80 100%);
+    color:#fff;
+    padding:52px 0 44px;
+    border-bottom:5px solid var(--accent);
+  }
+  .eyebrow{
+    display:inline-block;
+    font-size:13px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:#ffd489;
+    border:1px solid rgba(255,212,137,.5);
+    border-radius:999px;
+    padding:5px 14px;
+    margin-bottom:18px;
+  }
+  h1{
+    margin:0 0 14px;
+    font-size:clamp(26px,4.1vw,44px);
+    line-height:1.16;
+    letter-spacing:-.01em;
+    font-weight:800;
+  }
+  h1 .thin{font-weight:400;color:#bcd6f2}
+  .lead{
+    margin:0;
+    max-width:74ch;
+    color:#d7e6f7;
+    font-size:clamp(15px,1.6vw,19px);
+  }
+  .meta{
+    display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;
+  }
+  .meta span{
+    background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.20);
+    border-radius:8px;
+    padding:6px 12px;
+    font-size:14px;
+    color:#eaf3ff;
+  }
+  .meta b{color:#ffd489;font-weight:600}
+
+  /* ---------- NAV ---------- */
+  nav.toc{
+    position:sticky;top:0;z-index:20;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.toc ul{
+    display:flex;flex-wrap:wrap;gap:6px;
+    list-style:none;margin:0;padding:10px 0;
+  }
+  nav.toc a{
+    display:block;
+    text-decoration:none;
+    color:var(--navy-2);
+    font-size:14.5px;
+    font-weight:600;
+    padding:7px 12px;
+    border-radius:8px;
+    border:1px solid transparent;
+  }
+  nav.toc a:hover{background:#eef4fb;border-color:#cfe0f2}
+
+  /* ---------- SECTIONS ---------- */
+  main{padding:34px 0 60px}
+  section{margin-bottom:38px}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 6px}
+  .num{
+    flex:0 0 auto;
+    width:38px;height:38px;border-radius:11px;
+    background:var(--navy);color:#fff;
+    display:grid;place-items:center;
+    font-weight:800;font-size:17px;
+    box-shadow:0 4px 12px rgba(18,53,91,.28);
+  }
+  h2{
+    margin:0;
+    font-size:clamp(20px,2.4vw,27px);
+    color:var(--navy);
+    letter-spacing:-.01em;
+  }
+  h3{
+    margin:26px 0 10px;
+    font-size:19px;
+    color:var(--navy-2);
+  }
+  h3 .tag{
+    font-size:12.5px;font-weight:700;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:2px;
+  }
+  h4{margin:18px 0 6px;font-size:16.5px;color:var(--navy)}
+  .sec-sub{color:var(--muted);margin:0 0 18px;font-size:15.5px}
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:24px 26px;
+    box-shadow:var(--shadow);
+  }
+  .card + .card{margin-top:16px}
+
+  /* ---------- CHECKLIST ---------- */
+  ol.check{list-style:none;counter-reset:c;margin:0;padding:0}
+  ol.check > li{
+    counter-increment:c;
+    position:relative;
+    padding:14px 0 14px 58px;
+    border-bottom:1px dashed var(--line);
+  }
+  ol.check > li:last-child{border-bottom:0;padding-bottom:4px}
+  ol.check > li::before{
+    content:counter(c);
+    position:absolute;left:0;top:14px;
+    width:38px;height:38px;border-radius:50%;
+    background:#e8f1fd;color:var(--navy);
+    border:2px solid #c5dcf6;
+    display:grid;place-items:center;
+    font-weight:800;font-size:16px;
+  }
+  ol.check b{color:var(--navy)}
+  ol.check .ex{
+    display:block;margin-top:5px;
+    color:var(--muted);font-size:15px;
+  }
+  .good{color:var(--green);font-weight:600}
+  .bad{color:var(--red);font-weight:600}
+
+  /* ---------- LISTS ---------- */
+  ul.plain, ul.ticks, ul.cross{margin:8px 0 0;padding-left:0;list-style:none}
+  ul.plain li{padding-left:22px;position:relative;margin-bottom:7px}
+  ul.plain li::before{content:"▸";position:absolute;left:2px;color:var(--accent);font-weight:700}
+  ul.ticks li, ul.cross li{padding-left:28px;position:relative;margin-bottom:7px}
+  ul.ticks li::before{content:"✓";position:absolute;left:2px;color:var(--green);font-weight:800}
+  ul.cross li::before{content:"✕";position:absolute;left:2px;color:var(--red);font-weight:800}
+
+  /* ---------- GRID ---------- */
+  .grid{display:grid;gap:16px}
+  .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  @media (max-width:820px){ .g2,.g3{grid-template-columns:1fr} }
+
+  .mini{
+    background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;
+    border-top:4px solid var(--navy-2);
+  }
+  .mini h4{margin:0 0 8px}
+  .mini .k{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .mini p{margin:0;font-size:15.5px;color:#2c3e4d}
+
+  /* ---------- REKVIZYT FORM MOCK ---------- */
+  .formular{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:0;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .formular .fh{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
+    background:#f0f5fb;border-bottom:1px solid var(--line);
+    padding:10px 18px;font-size:13.5px;color:var(--muted);
+  }
+  .formular .fb{padding:22px 22px 26px;position:relative}
+  .frow{
+    display:grid;grid-template-columns:52px 1fr;gap:14px;
+    padding:11px 0;border-bottom:1px dashed #e6edf4;
+  }
+  .frow:last-child{border-bottom:0}
+  .fno{
+    width:34px;height:34px;border-radius:9px;
+    background:#e8f1fd;color:var(--navy);
+    display:grid;place-items:center;font-weight:800;font-size:14px;
+    border:1px solid #cfe1f7;
+  }
+  .frow .ftitle{font-weight:700;color:var(--navy);font-size:15.5px}
+  .frow .fdesc{color:var(--muted);font-size:14.5px;margin-top:2px}
+  .stamp{
+    position:absolute;right:14px;bottom:12px;
+    transform:rotate(-9deg);
+    border:2px dashed #d9a3a3;color:#c98b8b;
+    border-radius:8px;padding:4px 10px;font-size:12px;font-weight:700;letter-spacing:.08em;
+  }
+  @media (max-width:600px){ .stamp{display:none} }
+
+  /* ---------- TABLE ---------- */
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow)}
+  table{border-collapse:collapse;width:100%;min-width:760px;font-size:15.5px}
+  caption{
+    caption-side:top;text-align:left;
+    padding:18px 20px 10px;font-weight:700;color:var(--navy);font-size:17px;
+  }
+  thead th{
+    background:var(--navy);color:#fff;text-align:left;
+    padding:13px 16px;font-size:14.5px;letter-spacing:.03em;font-weight:700;
+    position:sticky;top:0;
+  }
+  thead th:nth-child(2){background:#8c2f26}
+  thead th:nth-child(3){background:#15694a}
+  tbody td{padding:13px 16px;border-top:1px solid var(--line);vertical-align:top}
+  tbody tr:nth-child(even){background:#fafcfe}
+  tbody td:first-child{font-weight:600;color:var(--navy);width:19%}
+  td.no{color:#8c2f26}
+  td.yes{color:#12603f}
+  td .why{display:block;color:var(--muted);font-size:14px;margin-top:6px;font-style:italic}
+  .pill{
+    display:inline-block;font-size:12px;font-weight:700;letter-spacing:.05em;
+    padding:2px 8px;border-radius:999px;text-transform:uppercase;vertical-align:2px;
+  }
+  .pill.tone{background:#fdeceb;color:#a93226}
+  .pill.struct{background:#eef1fd;color:#3b4fa8}
+  .pill.req{background:#fff5e2;color:#97650c}
+
+  /* ---------- PRACTICE / EMBEDS ---------- */
+  .embed{
+    border:2px dashed #b9cde3;
+    border-radius:12px;
+    background:repeating-linear-gradient(45deg,#fbfdff,#fbfdff 12px,#f4f9ff 12px,#f4f9ff 24px);
+    padding:26px 22px;
+    text-align:center;
+  }
+  .embed .ico{font-size:30px;line-height:1}
+  .embed b{display:block;color:var(--navy);margin:8px 0 4px;font-size:16.5px}
+  .embed p{margin:0 auto;color:var(--muted);font-size:15px;max-width:62ch}
+  pre{
+    background:#0f2233;color:#d9e8f7;border-radius:11px;
+    padding:16px 18px;overflow-x:auto;font-size:13.5px;line-height:1.55;
+    font-family:"Consolas","SF Mono",Menlo,monospace;
+    border:1px solid #1d3b58;
+  }
+  pre .c{color:#7fa6c9}
+  code.inl{
+    background:#edf3fa;border:1px solid #d5e3f2;border-radius:5px;
+    padding:1px 6px;font-family:"Consolas","SF Mono",Menlo,monospace;font-size:14px;color:#1b4470;
+  }
+
+  /* ---------- REFLECTION ---------- */
+  details{
+    background:#fff;border:1px solid var(--line);border-left:5px solid var(--accent);
+    border-radius:12px;padding:14px 18px;margin-top:12px;box-shadow:var(--shadow);
+  }
+  details summary{
+    cursor:pointer;font-weight:700;color:var(--navy);list-style:none;font-size:16.5px;
+    display:flex;gap:10px;align-items:flex-start;
+  }
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"＋";color:var(--accent);font-weight:800;flex:0 0 auto}
+  details[open] summary::before{content:"−"}
+  details .body{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);color:#2c3e4d}
+  .hint{
+    background:#fffaf0;border:1px solid #f0dcb4;border-radius:10px;
+    padding:12px 16px;font-size:15px;color:#6d5312;margin-top:14px;
+  }
+
+  /* ---------- TASK CARDS ---------- */
+  .task{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;
+  }
+  .task .th{
+    background:linear-gradient(135deg,#12355b,#1c4e80);color:#fff;padding:16px 20px;
+  }
+  .task .th .lvl{
+    display:inline-block;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+    background:rgba(255,212,137,.18);border:1px solid rgba(255,212,137,.45);color:#ffd489;
+    border-radius:999px;padding:2px 10px;margin-bottom:8px;
+  }
+  .task .th h4{margin:0;color:#fff;font-size:18px}
+  .task .tb{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column}
+  .task .lbl{
+    font-size:12.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+    margin:14px 0 4px;
+  }
+  .task .lbl:first-child{margin-top:0}
+  .task p{margin:0;font-size:15.5px}
+  .task .quote{
+    background:#fdf3f2;border-left:4px solid #d98880;border-radius:8px;
+    padding:10px 14px;font-size:15px;color:#7c2f27;font-style:italic;
+  }
+  .task ul{margin:6px 0 0;padding-left:20px;font-size:15px;color:#2c3e4d}
+  .task ul li{margin-bottom:4px}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--navy);color:#c7dcf3;padding:30px 0 36px;font-size:14.5px;
+    border-top:5px solid var(--accent);
+  }
+  footer a{color:#ffd489;text-decoration:none;border-bottom:1px dotted rgba(255,212,137,.5)}
+  footer .frow2{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between}
+  footer .col{max-width:52ch}
+  footer p{margin:0 0 8px}
+  .srcline{font-size:13.5px;color:#9fbcda}
+
+  .printbtn{
+    display:inline-block;margin-top:18px;background:var(--accent);color:#3a2606;
+    border:0;border-radius:9px;padding:10px 18px;font-weight:800;font-size:15px;cursor:pointer;
+    font-family:inherit;box-shadow:0 4px 14px rgba(224,161,58,.35);
+  }
+  .printbtn:hover{filter:brightness(1.06)}
+
+  /* ---------- PRINT ---------- */
+  @media print{
+    nav.toc,.printbtn{display:none!important}
+    body{background:#fff;font-size:12pt}
+    header.hero{background:#12355b!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:24px 0}
+    .card,.mini,.task,.tablewrap,.formular{box-shadow:none}
+    section{page-break-inside:avoid}
+    details{page-break-inside:avoid}
+    details:not([open]) .body{display:block}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Сторінка-звіт · Ділове мовлення</span>
+
+    <h1>Ділове листування в цифровому середовищі: <span class="thin">етикет, структура, реквізити та шаблони</span></h1>
+
+    <p class="lead">
+      Офіційний лист — це не «повідомлення», а документ. Тут зібрано все, що потрібно, щоб скласти
+      його правильно: правила стилю й мережевого етикету, логіка викладу, обов’язкові реквізити
+      за формуляром-зразком, готові цифрові шаблони — і три практичні кейси з рефлексією.
+    </p>
+
+    <div class="meta">
+      <span><b>Автор:</b> _______________ (учень / учениця ___ класу)</span>
+      <span><b>Заклад:</b> _______________</span>
+      <span><b>Дата:</b> 17.09.2026</span>
+      <span><b>Тема звіту:</b> 4 блоки плану + рефлексія</span>
+    </div>
+
+    <button class="printbtn" onclick="try{window.print()}catch(e){}">🖨 Друк / зберегти як PDF</button>
+  </div>
+</header>
+
+<!-- ================= NAV ================= -->
+<nav class="toc">
+  <div class="wrap">
+    <ul>
+      <li><a href="#teoria">1. Теорія коротко</a></li>
+      <li><a href="#rekvizyty">Реквізити й формуляр</a></li>
+      <li><a href="#tablytsia">2. «Як треба / як не треба»</a></li>
+      <li><a href="#praktyka">3. Практична частина</a></li>
+      <li><a href="#refleksia">4. Саморефлексія</a></li>
+      <li><a href="#zavdannya">5. Практичні завдання</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ================= 1. ТЕОРІЯ ================= -->
+  <section id="teoria">
+    <div class="sec-head">
+      <div class="num">1</div>
+      <h2>Теорія коротко: чеклист із 6 правил ділового листування</h2>
+    </div>
+    <p class="sec-sub">Мінімум, який тримає лист у межах офіційно-ділового стилю: точність, лаконічність, нейтральність тону, відсутність емоційно забарвленої лексики.</p>
+
+    <div class="card">
+      <ol class="check">
+        <li>
+          <b>Точність і конкретність.</b> Називайте факти, дати, номери, суми, посади й прізвища повністю.
+          <span class="ex">Не «десь на початку місяця», а «до 05.10.2026»; не «наш партнер», а «ТОВ «ОсвітаТех», код ЄДРПОУ 12345678».</span>
+        </li>
+        <li>
+          <b>Лаконічність.</b> Одна думка — один абзац; лист — до однієї сторінки. Приберіть «воду».
+          <span class="ex">Не «Хотілося б звернути вашу увагу на те, що…», а «Повідомляємо, що…».</span>
+        </li>
+        <li>
+          <b>Нейтральний, доброзичливий тон.</b> Без емоцій, іронії, докорів, окличних знаків і наказів.
+          <span class="ex">Замість «Ви зірвали нам проєкт!» — «Через затримку поставки виникли труднощі у виконанні строків».</span>
+        </li>
+        <li>
+          <b>Ніякої емоційно забарвленої, розмовної та жаргонної лексики.</b> Лише офіційно-ділова лексика й мовні кліше.
+          <span class="ex"><span class="bad">«Здоров», «плз», «скиньте», «дякую за розуміння»</span> → <span class="good">«Шановний…», «просимо надіслати», «заздалегідь вдячні за відповідь»</span>.</span>
+        </li>
+        <li>
+          <b>Логічна структура й зв’язність абзаців.</b> Вступ (причина звернення) → основна частина (суть, аргументи, факти) → заключна частина (пропозиція, очікуваний результат, подяка).
+          <span class="ex">Абзаци з’єднуються словами-маркерами: «у зв’язку з», «крім того», «з огляду на зазначене», «просимо…».</span>
+        </li>
+        <li>
+          <b>Коректне звернення, підпис і мережевий етикет (Netiquette).</b> Привітання на початку, повні реквізити автора в кінці, відповідь — у робочий час і протягом 1–2 робочих днів.
+          <span class="ex">«Шановний Іване Петровичу!» → текст → «З повагою, Олена Ковальчук, менеджер з постачання, тел. +380…, e-mail …».</span>
+        </li>
+      </ol>
+    </div>
+
+    <h3><span class="tag">Правила для e-mail</span>Мережевий етикет (Netiquette) у цифровому листуванні</h3>
+    <div class="grid g2">
+      <div class="mini">
+        <h4>Як поводитися</h4>
+        <ul class="ticks">
+          <li>Тема листа — коротка й інформативна: «Щодо перенесення строку поставки обладнання».</li>
+          <li>Звернення на початку: «Шановний пане директоре!» / «Шановна Олено Петрівно!».</li>
+          <li>Один лист — одне питання; прохання формулюйте ввічливо: «Просимо Вас…», «Будь ласка, повідомте…».</li>
+          <li>Відповідайте протягом 1–2 робочих днів; у темі відповіді зберігайте <code class="inl">Re:</code>.</li>
+          <li>Перевіряйте вкладення та ім’я адресата, ввімкнене «Відповісти всім» — зважено.</li>
+          <li>Наприкінці — підпис: ім’я, посада, організація, телефон, e-mail.</li>
+        </ul>
+      </div>
+      <div class="mini" style="border-top-color:#c0392b">
+        <h4>Чого не робити</h4>
+        <ul class="cross">
+          <li>Писати все ВЕЛИКИМИ ЛІТЕРАМИ — це сприймається як крик.</li>
+          <li>Ставити 3–5 знаків оклику, смайлики та стікери в офіційному листі.</li>
+          <li>Надсилати лист без теми або з темою «Привіт» / «Важливо!!!».</li>
+          <li>Вкладати важкі файли (понад 10–15 МБ) замість посилання на хмарне сховище.</li>
+          <li>Писати від імені «я так думаю»: офіційний лист — позиція організації, а не особиста думка.</li>
+          <li>Надсилати відповідь через 5 хвилин після листа-роздратування: спершу перечитати, потім відправляти.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3><span class="tag">Структура листа</span>Логічні елементи тексту та порядок викладення</h3>
+    <div class="grid g3">
+      <div class="mini">
+        <div class="k">Частина 1</div>
+        <h4>Вступ</h4>
+        <p>Причина звернення: хто, до кого і чому пише. Одне-два речення — із посиланням на договір, лист, подію.</p>
+        <p style="margin-top:8px;color:var(--muted);font-size:14.5px">«У зв’язку з виконанням умов договору № 14 від 02.09.2026…»</p>
+      </div>
+      <div class="mini">
+        <div class="k">Частина 2</div>
+        <h4>Основна частина</h4>
+        <p>Суть питання, аргументи, факти, цифри, посилання на документи. Тут доводимо, а не емоційно оцінюємо.</p>
+        <p style="margin-top:8px;color:var(--muted);font-size:14.5px">«Станом на 15.09.2026 поставлено 6 з 20 комплектів…»</p>
+      </div>
+      <div class="mini">
+        <div class="k">Частина 3</div>
+        <h4>Заключна частина</h4>
+        <p>Пропозиція, очікуваний результат, строк, подяка. Чітко: що саме має зробити адресат і до коли.</p>
+        <p style="margin-top:8px;color:var(--muted);font-size:14.5px">«Просимо підтвердити згоду до 25.09.2026. Заздалегідь вдячні за відповідь».</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= РЕКВІЗИТИ ================= -->
+  <section id="rekvizyty">
+    <div class="sec-head">
+      <div class="num">2</div>
+      <h2>Обов’язкові реквізити та формуляр-зразок (ДСТУ)</h2>
+    </div>
+    <p class="sec-sub">
+      <b>Реквізит</b> — обов’язковий інформаційний елемент офіційного документа (назва, дата, номер, підпис).
+      <b>Формуляр-зразок</b> — сукупність реквізитів, розміщених у встановленій стандартом послідовності
+      (див. ДСТУ 4163:2020 «Вимоги до оформлення документів»).
+    </p>
+
+    <div class="formular">
+      <div class="fh">
+        <span>Формуляр-зразок офіційного листа</span>
+        <span>Поля: ліве — 30 мм, праве — 10 мм, верхнє — 20 мм, нижнє — 20 мм</span>
+      </div>
+      <div class="fb">
+        <div class="frow">
+          <div class="fno">1</div>
+          <div>
+            <div class="ftitle">Назва організації (бланк, логотип)</div>
+            <div class="fdesc">Повна або офіційно скорочена назва: «ТОВ «ОсвітаТех»». Бланк із куточковим або центральним штампом.</div>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="fno">2</div>
+          <div>
+            <div class="ftitle">Довідкові дані про організацію</div>
+            <div class="fdesc">Адреса, телефон, e-mail, вебсайт, код ЄДРПОУ.</div>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="fno">3</div>
+          <div>
+            <div class="ftitle">Дата документа</div>
+            <div class="fdesc">«17.09.2026» (у листах) — дата підписання або підготовки.</div>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="fno">4</div>
+          <div>
+            <div class="ftitle">Реєстраційний (вихідний) номер</div>
+            <div class="fdesc">«№ 245/01-12» — індекс структурного підрозділу та номер за журналом реєстрації.</div>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="fno">5</div>
+          <div>
+            <div class="ftitle">Адресат</div>
+            <div class="fdesc">Кому і куди: «Керівнику навчального закладу <br>Івану Петровичу Мельнику <br>вул. Миру, 12, м. Миргород». Дані — у давальному відмінку.</div>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="fno">6</div>
+          <div>
+            <div class="ftitle">Заголовок до тексту</div>
+            <div class="fdesc">Однією фразою про суть: «Щодо затримки поставки обладнання для IT-лабораторії». Пишеться без лапок і без крапки.</div>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="fno">7</div>
+          <div>
+            <div class="ftitle">Текст листа</div>
+            <div class="fdesc">Вступ → основна частина → заключна частина. Звертання «Шановний…» — окремим рядком або з абзацу.</div>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="fno">8</div>
+          <div>
+            <div class="ftitle">Позначка про наявність додатків</div>
+            <div class="fdesc">«Додаток: комерційна пропозиція на 1 арк. в 1 прим.» — якщо додатки є.</div>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="fno">9</div>
+          <div>
+            <div class="ftitle">Підпис</div>
+            <div class="fdesc">Посада, власноручний підпис (або електронний підпис), ініціали й прізвище: «Директор ____ О. В. Ковальчук».</div>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="fno">10</div>
+          <div>
+            <div class="ftitle">Позначка про виконавця</div>
+            <div class="fdesc">ПІБ, телефон, e-mail відповідальної особи — щоб адресат знав, з ким уточнити деталі.</div>
+          </div>
+        </div>
+        <div class="stamp">МІСЦЕ ПЕЧАТКИ (за потреби)</div>
+      </div>
+    </div>
+
+    <div class="hint">
+      <b>Мінімум для шкільного листа:</b> 1 (назва закладу) + 3 (дата) + 4 (номер) + 5 (адресат) + 6 (заголовок) +
+      7 (текст) + 9 (підпис) + 10 (виконавець). Якщо хоч один елемент відсутній — документ юридично «неповний».
+    </div>
+
+    <h3><span class="tag">Блок 4 плану</span>Шаблони документів у цифровому середовищі</h3>
+    <div class="grid g3">
+      <div class="mini">
+        <h4>Google Документи</h4>
+        <p>Створіть файл → «Файл» → «Надіслати копію» / «Зберегти як шаблон»; користуйтеся галереєю шаблонів (заява, резюме, лист).</p>
+      </div>
+      <div class="mini">
+        <h4>MS Word</h4>
+        <p>«Файл» → «Створити» → шаблони Office; власний шаблон зберігайте як <code class="inl">.dotx</code> у теці «Настроювані шаблони Office».</p>
+      </div>
+      <div class="mini">
+        <h4>Стандартизація</h4>
+        <p>Один бланк для всіх: однакові шрифт (Times New Roman 14, інтервал 1,5), поля, логотип, структура реквізитів.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 2. ТАБЛИЦЯ ================= -->
+  <section id="tablytsia">
+    <div class="sec-head">
+      <div class="num">3</div>
+      <h2>Порівняльна таблиця: «як не треба» / «як треба»</h2>
+    </div>
+    <p class="sec-sub">Типові помилки в тоні, структурі та реквізитах офіційних листів — і коректні варіанти.</p>
+
+    <div class="tablewrap">
+      <table>
+        <caption>Помилки ділового листа та їх виправлення</caption>
+        <thead>
+          <tr>
+            <th>Елемент</th>
+            <th>✕ Як не треба</th>
+            <th>✓ Як треба</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Звертання <span class="pill tone">тон</span></td>
+            <td class="no">«Здоров, директор!»
+              <span class="why">Розмовна лексика, зневажливе звертання, ігнорування імені та по батькові.</span>
+            </td>
+            <td class="yes">«Шановний Іване Петровичу!»
+              <span class="why">Форма кліше, пошанівне звертання у кличному відмінку.</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Прохання <span class="pill tone">тон</span></td>
+            <td class="no">«Скиньте грошей, дуже треба, плз»
+              <span class="why">Сленг, відсутність конкретики: скільки, на що, у який строк.</span>
+            </td>
+            <td class="yes">«Просимо розглянути можливість часткового фінансування проєкту в сумі 25 000 грн до 20.10.2026.»
+              <span class="why">Ввічлива форма, точна сума й строк.</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Реакція на проблему <span class="pill tone">тон</span></td>
+            <td class="no">«Ви зіпсували нам весь проєкт!!! Ми дуже обурені!»
+              <span class="why">Емоції, звинувачення, окличні знаки — адресат займе оборонну позицію.</span>
+            </td>
+            <td class="yes">«Через затримку поставки виникли труднощі у виконанні календарного плану. Пропонуємо скоригувати графік.»
+              <span class="why">Факт + пропозиція розв’язання замість докору.</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Прощання та підпис <span class="pill tone">тон</span></td>
+            <td class="no">«Ну, бувай. Чекаю відповіді!!!»
+              <span class="why">Відсутні посада, ім’я, контакти — лист формально «ні від кого».</span>
+            </td>
+            <td class="yes">«З повагою, директор ТОВ «ОсвітаТех» О. В. Ковальчук, тел. +380 50 123 45 67, o.kovalchuk@example.com»
+              <span class="why">Коректне прощання і повні реквізити автора.</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Структура тексту <span class="pill struct">структура</span></td>
+            <td class="no">Один суцільний абзац на 1,5 сторінки: «ми хотіли б вам написати з приводу того, що…»
+              <span class="why">Немає поділу на вступ, суть і висновок, думка загублена.</span>
+            </td>
+            <td class="yes">Три абзаци: причина звернення → факти й аргументи → прохання та строк відповіді.
+              <span class="why">«Один абзац — одна думка», читач бачить суть за 20 секунд.</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Тема e-mail <span class="pill struct">структура</span></td>
+            <td class="no">«Привіт!!», «Терміново!!!», порожня тема
+              <span class="why">Лист важко знайти в пошті, адресат не розуміє суті.</span>
+            </td>
+            <td class="yes">«Щодо перенесення строку поставки обладнання (договір № 14)»
+              <span class="why">Інформативна тема з посиланням на документ.</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Повнота реквізитів <span class="pill req">реквізити</span></td>
+            <td class="no">Лист без дати, без номера, без заголовка, підпис — «Менеджер»
+              <span class="why">Документ неможливо зареєструвати й ідентифікувати; незрозуміло, хто підписує.</span>
+            </td>
+            <td class="yes">Дата «17.09.2026», № 245/01-12, заголовок «Щодо…», підпис: посада, ініціали, прізвище, позначка про виконавця.
+              <span class="why">Усі елементи формуляра-зразка на місці.</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Факти й цифри <span class="pill req">реквізити</span></td>
+            <td class="no">«Ми вже давно чекаємо, і взагалі багато чого не привезли»
+              <span class="why">Немає дат, кількості, підстав для претензії.</span>
+            </td>
+            <td class="yes">«Станом на 15.09.2026 із 20 комплектів отримано 6. Решта — згідно з п. 3.2 договору № 14 мала надійти до 10.09.2026.»
+              <span class="why">Кожне твердження підтверджене даними та посиланням.</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Ім’я та назви <span class="pill req">реквізити</span></td>
+            <td class="no">«Шановний Іван Іванович!» — адресат насправді Петро Сергійович; назва фірми з помилкою
+              <span class="why">Дрібна неточність знищує довіру до всього листа.</span>
+            </td>
+            <td class="yes">Перевірено: точне ім’я, по батькові, посада, правильна назва організації й адреса.
+              <span class="why">Точність — головна риса ділового стилю.</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Вкладення <span class="pill struct">структура</span></td>
+            <td class="no">У тексті «файл у вкладенні» — і нічого не прикріплено; або архів на 200 МБ
+              <span class="why">Класична помилка нетікету: лист стає беззмістовним, пошта «падає».</span>
+            </td>
+            <td class="yes">«Додаток: комерційна пропозиція (PDF, 1 арк.)» + файл до 10–15 МБ або посилання на хмару.
+              <span class="why">Вкладення назване, перевірене й прикріплене.</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ================= 3. ПРАКТИКА ================= -->
+  <section id="praktyka">
+    <div class="sec-head">
+      <div class="num">4</div>
+      <h2>Практична частина: виконані завдання</h2>
+    </div>
+    <p class="sec-sub">Вбудовані файли з практичними роботами. Нижче — місця для вставки Google-документів і код для вбудовування.</p>
+
+    <div class="grid g3">
+      <div class="embed">
+        <div class="ico">📄</div>
+        <b>Завдання 1. Лист-вибачення</b>
+        <p>Тут буде вбудований Google Документ із листом від імені директора компанії.</p>
+      </div>
+      <div class="embed">
+        <div class="ico">🔍</div>
+        <b>Завдання 2. Редагований лист-запит</b>
+        <p>Тут буде вбудований документ із виправленою чернеткою «стажера».</p>
+      </div>
+      <div class="embed">
+        <div class="ico">🧩</div>
+        <b>Завдання 3. Шаблон бланка + мотиваційний лист</b>
+        <p>Тут буде вбудований шаблон бланка та мотиваційний лист до грантового проєкту.</p>
+      </div>
+    </div>
+
+    <h3><span class="tag">Підказка</span>Як вбудувати Google Документ на сторінку</h3>
+    <div class="card">
+      <p style="margin-top:0">У Google Документі: <b>Файл → Поділитися → Опублікувати в Інтернеті → Вставити</b>, або відкрийте доступ «Усі, хто має посилання — Читач» і вставте адресу у <code class="inl">src</code>:</p>
+      <pre><span class="c">&lt;!-- Вставити на місце блоку "embed" --&gt;</span>
+&lt;iframe
+  src="https://docs.google.com/document/d/<em>ID_ДОКУМЕНТА</em>/preview"
+  width="100%" height="560"
+  style="border:1px solid #dbe4ec;border-radius:12px"
+  loading="lazy"&gt;&lt;/iframe&gt;
+
+<span class="c">&lt;!-- Готовий файл Word із робочого столу: --&gt;</span>
+&lt;embed src="zavdannya-1-lyst-vybachennia.pdf" type="application/pdf" width="100%" height="560"&gt;</pre>
+      <p style="margin-bottom:0;color:var(--muted);font-size:15px">
+        ⚠️ Зверніть увагу: у режимі попереднього перегляду цієї сторінки зовнішні вбудовані документи не завантажуються
+        (немає доступу до мережі) — вони з’являться, коли файл відкрити у браузері або опублікувати на сайті/блозі.
+      </p>
+    </div>
+
+    <h3><span class="tag">Зразок виконання</span>Приклад відредагованого листа-запиту до Завдання 2</h3>
+    <div class="card" style="border-left:5px solid var(--green)">
+      <p style="margin:0 0 4px;font-weight:700;color:var(--navy)">ТОВ «Шкільний Дім»</p>
+      <p style="margin:0;color:var(--muted);font-size:14.5px">вул. Соборності, 15, м. Миргород, Полтавська обл., 37600 · тел. (05355) 4-11-22 · school-house@example.com</p>
+      <hr style="border:0;border-top:1px solid var(--line);margin:16px 0">
+      <p style="margin:0 0 12px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <span>17.09.2026 № 118/03-07</span>
+        <span style="text-align:right">Директору ТОВ «ОсвітаТех»<br>Олені Вікторівні Ковальчук<br>вул. Польова, 3, м. Київ, 02000</span>
+      </p>
+      <p style="margin:0 0 14px;font-weight:700;color:var(--navy)">Щодо постачання комп’ютерного обладнання</p>
+      <p style="margin:0 0 10px"><b>Шановна Олено Вікторівно!</b></p>
+      <p style="margin:0 0 10px">У зв’язку з підготовкою шкільної IT-лабораторії до нового навчального року звертаємось щодо строків постачання обладнання за договором № 14 від 02.09.2026.</p>
+      <p style="margin:0 0 10px">Станом на 15.09.2026 отримано 6 із 20 замовлених комплектів. Відповідно до п. 3.2 договору решта мала надійти до 10.09.2026. Просимо повідомити причини затримки та підтвердити оновлений графік поставки, а також надіслати видаткові документи на отриману партію.</p>
+      <p style="margin:0 0 16px">Відповідь просимо надіслати до 22.09.2026 на адресу school-house@example.com. Заздалегідь вдячні за оперативне реагування.</p>
+      <p style="margin:0 0 4px">З повагою,</p>
+      <p style="margin:0 0 14px">Директор ТОВ «Шкільний Дім» &nbsp; ____________ &nbsp; І. П. Мельник</p>
+      <p style="margin:0;color:var(--muted);font-size:14.5px">Виконавець: заступник директора Сергій Олегович Кравець, тел. +380 67 555 12 34, s.kravets@example.com</p>
+    </div>
+  </section>
+
+  <!-- ================= 4. РЕФЛЕКСІЯ ================= -->
+  <section id="refleksia">
+    <div class="sec-head">
+      <div class="num">5</div>
+      <h2>Саморефлексія</h2>
+    </div>
+    <p class="sec-sub">Розгорніть блок, щоб побачити свій запис — або скористайтеся підказками-орієнтирами.</p>
+
+    <details open>
+      <summary>Що виявилося найскладнішим під час складання офіційного документа?</summary>
+      <div class="body">
+        <p><b>Моя відповідь:</b></p>
+        <p>Найскладнішим було відмовитися від звичного розмовного «швидкого» стилю та тримати нейтральний тон:
+        писати не «нам дуже потрібно», а «просимо розглянути можливість». Також непросто було вибудувати
+        послідовність реквізитів — постійно виникало питання «де саме має стояти адресат і чи потрібен заголовок».
+        Коли прибрав емоції, текст став коротшим і зрозумілішим, але спочатку здавалося, що він «сухий» і неввічливий.</p>
+        <p style="margin-bottom:0;color:var(--muted);font-size:15px"><i>Орієнтири для власної відповіді: формулювання прохання без наказу; дотримання структури з трьох частин; точність дат, назв і посад; страх «сухого» тону; робота з шаблоном і полями документа.</i></p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Як навички ділового листування знадобляться мені в майбутньому?</summary>
+      <div class="body">
+        <p><b>Моя відповідь:</b></p>
+        <p>Листування — це перше, з чим мене «побачать» у дорослому житті: заявка на грант, мотиваційний лист,
+        звернення до адміністрації, спілкування з партнерами чи роботодавцем. Уміння структурувати думку
+        й добирати нейтральний тон зекономить час і зменшить кількість конфліктів. Крім того, готові шаблони
+        дадуть мені змогу швидко оформлювати документи правильно — від заяви в школі до резюме при
+        працевлаштуванні.</p>
+        <p style="margin-bottom:0;color:var(--muted);font-size:15px"><i>Орієнтири: навчання й вступ (мотиваційний лист, звернення), робота (резюме, ділове e-mail), громадські проєкти (гранти, листи до партнерів), особиста репутація й цифровий етикет.</i></p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ================= 5. ЗАВДАННЯ ================= -->
+  <section id="zavdannya">
+    <div class="sec-head">
+      <div class="num">6</div>
+      <h2>Цікаві практичні завдання</h2>
+    </div>
+    <p class="sec-sub">Три кейси різного формату: симуляція реальної ситуації, аналіз-редагування та створення цифрового стандарту.</p>
+
+    <div class="grid g3">
+      <!-- Завдання 1 -->
+      <article class="task">
+        <div class="th">
+          <span class="lvl">Кейс · симуляція</span>
+          <h4>Завдання 1. «Адвокат бренду»</h4>
+        </div>
+        <div class="tb">
+          <div class="lbl">Контекст</div>
+          <p>Ви працюєте в службі підтримки компанії, яка затримала доставку обладнання для шкільної IT-лабораторії. Керівник навчального закладу вже надіслав лист із претензією.</p>
+          <div class="lbl">Завдання</div>
+          <p>Скласти офіційний лист-вибачення від імені директора компанії на ім’я керівника закладу: пояснити причину затримки, запропонувати рішення (бонус/знижку), зберегти діловий, але доброзичливий тон і оформити за всіма реквізитами.</p>
+          <div class="lbl">Обов’язково у листі</div>
+          <ul>
+            <li>вибачення + конкретна причина затримки (без «обставин, що склалися»);</li>
+            <li>новий строк поставки з датою;</li>
+            <li>компенсація: знижка 5 % або безкоштовна доставка/налаштування;</li>
+            <li>всі реквізити формуляра: дата, вихідний номер, адресат, заголовок, підпис, виконавець.</li>
+          </ul>
+          <div class="lbl">Критерії оцінювання</div>
+          <ul>
+            <li>тон нейтральний і доброзичливий — 3 б.</li>
+            <li>структура з трьох частин — 2 б.</li>
+            <li>повнота реквізитів — 3 б.</li>
+            <li>відсутність емоційної лексики — 2 б.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Завдання 2 -->
+      <article class="task">
+        <div class="th">
+          <span class="lvl">Аналіз · редагування</span>
+          <h4>Завдання 2. «Детектив помилок»</h4>
+        </div>
+        <div class="tb">
+          <div class="lbl">Контекст</div>
+          <p>Вам надійшов чернетковий варіант листа від «стажера»:</p>
+          <p class="quote">«Здоров, директор! Нам треба компи, скиньте грошей, чекаємо відповіді плз».</p>
+          <div class="lbl">Завдання</div>
+          <p>Знайти всі стилістичні, логічні та структурні помилки; відредагувати текст і перетворити його на офіційний лист-запит згідно з формуляром-зразком.</p>
+          <div class="lbl">Що шукати</div>
+          <ul>
+            <li>розмовний і сленговий шар лексики («здоров», «плз», «скиньте»);</li>
+            <li>звертання без імені та по батькові; невідповідний тон;</li>
+            <li>відсутність конкретики: яке обладнання, скільки, на що сума;</li>
+            <li>немає структури (вступ / суть / висновок) і жодного реквізиту;</li>
+            <li>відсутні підпис і дані для відповіді.</li>
+          </ul>
+          <div class="lbl">Підсумок роботи</div>
+          <ul>
+            <li>таблиця «було → стало» щонайменше з 6 правок;</li>
+            <li>фінальний лист-запит із усіма реквізитами.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Завдання 3 -->
+      <article class="task">
+        <div class="th">
+          <span class="lvl">Проєкт · цифровий стандарт</span>
+          <h4>Завдання 3. «Конструктор шаблону»</h4>
+        </div>
+        <div class="tb">
+          <div class="lbl">Контекст</div>
+          <p>Шкільне самоврядування планує регулярно звертатися до партнерів, спонсорів та інших закладів і потребує єдиного стандарту листів.</p>
+          <div class="lbl">Завдання</div>
+          <p>Розробити й оформити в Google Документах (або MS Word) універсальний шаблон офіційного бланка — з логотипом і полями під реквізити: дата, номер, адресат, заголовок. Зберегти його як шаблон і скласти на його основі мотиваційний лист для участі команди у грантовому проєкті.</p>
+          <div class="lbl">Технічні вимоги</div>
+          <ul>
+            <li>шрифт Times New Roman 14 pt, інтервал 1,5, поля 30/10/20/20 мм;</li>
+            <li>«шапка»: назва закладу, довідкові дані, логотип;</li>
+            <li>позначені поля для дати, номера, адресата й заголовка;</li>
+            <li>шаблон збережено: Google — «Зберегти як шаблон», Word — <code class="inl">.dotx</code>.</li>
+          </ul>
+          <div class="lbl">Мотиваційний лист має містити</div>
+          <ul>
+            <li>хто ми і який проєкт пропонуємо (мета, аудиторія);</li>
+            <li>що саме просимо: суму, обладнання, менторство;</li>
+            <li>очікуваний результат і подяку за розгляд.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <div class="hint">
+      <b>Порада для оцінювання:</b> об’єднайте три завдання в портфоліо — «лист-вибачення», «лист-запит»,
+      «шаблон + мотиваційний лист». Саме в такій послідовності вони показують три ключові навички:
+      контролювати тон, аналізувати й редагувати текст, стандартизувати документ у цифровому середовищі.
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap frow2">
+    <div class="col">
+      <p><b>Сторінка-звіт з теми «Ділове листування в цифровому середовищі»</b></p>
+      <p>Блоки: теорія коротко (чеклист + реквізити) · порівняльна таблиця «як треба / як не треба» · практична частина · саморефлексія · три практичні завдання.</p>
+      <p class="srcline">Оформлення документів — відповідно до ДСТУ 4163:2020 «Вимоги до оформлення документів» (чинний стандарт; ДСТУ 4163-2003 — застарілий).</p>
+    </div>
+    <div class="col">
+      <p><b>Зробили в класі:</b> _______________</p>
+      <p><b>Дата публікації сторінки:</b> 17.09.2026</p>
+      <p><b>Оцінка за практичну частину:</b> _______________</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
