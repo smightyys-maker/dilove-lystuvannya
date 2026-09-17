@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ділове листування в цифровому середовищі: етикет, структура, реквізити та шаблони</title>
 <meta name="description" content="Сторінка-звіт: чеклист правил ділового листування, обов'язкові реквізити за ДСТУ, порівняльна таблиця «як треба / як не треба», практичні завдання та саморефлексія.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✉️</text></svg>">
 <style>
   :root{
     --navy:#12355b;
@@ -103,6 +104,27 @@
     border:1px solid transparent;
   }
   nav.toc a:hover{background:#eef4fb;border-color:#cfe0f2}
+  nav.toc a.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+  .copy-btn{
+    position:absolute;top:16px;right:16px;
+    background:#eef4fb;color:var(--navy);border:1px solid #cfe0f2;
+    border-radius:8px;padding:6px 12px;font-size:13.5px;font-weight:600;
+    cursor:pointer;display:inline-flex;align-items:center;gap:6px;
+    transition:all .15s ease;
+  }
+  .copy-btn:hover{background:#dbe9f8;border-color:#adcbeb}
+  .copy-btn.copied{background:#eaf8ef;color:#15694a;border-color:#b5e2c7}
+  @media (max-width:640px){.copy-btn{position:static;margin-bottom:12px;display:block;width:100%}}
+
+  #back-to-top{
+    position:fixed;bottom:24px;right:24px;width:44px;height:44px;
+    border-radius:50%;background:var(--navy);color:#fff;border:2px solid #fff;
+    box-shadow:0 4px 14px rgba(18,53,91,.35);display:none;align-items:center;
+    justify-content:center;cursor:pointer;font-size:20px;z-index:99;
+    transition:opacity .2s,transform .2s;
+  }
+  #back-to-top:hover{background:var(--accent);color:#12355b;transform:translateY(-2px)}
 
   /* ---------- SECTIONS ---------- */
   main{padding:34px 0 60px}
@@ -381,15 +403,15 @@
 </header>
 
 <!-- ================= NAV ================= -->
-<nav class="toc">
+<nav class="toc" id="toc-nav">
   <div class="wrap">
     <ul>
       <li><a href="#teoria">1. Теорія коротко</a></li>
-      <li><a href="#rekvizyty">Реквізити й формуляр</a></li>
-      <li><a href="#tablytsia">2. «Як треба / як не треба»</a></li>
-      <li><a href="#praktyka">3. Практична частина</a></li>
-      <li><a href="#refleksia">4. Саморефлексія</a></li>
-      <li><a href="#zavdannya">5. Практичні завдання</a></li>
+      <li><a href="#rekvizyty">2. Реквізити й формуляр</a></li>
+      <li><a href="#tablytsia">3. «Як треба / як не треба»</a></li>
+      <li><a href="#praktyka">4. Практична частина</a></li>
+      <li><a href="#refleksia">5. Саморефлексія</a></li>
+      <li><a href="#zavdannya">6. Практичні завдання</a></li>
     </ul>
   </div>
 </nav>
@@ -755,22 +777,25 @@
     </div>
 
     <h3><span class="tag">Зразок виконання</span>Приклад відредагованого листа-запиту до Завдання 2</h3>
-    <div class="card" style="border-left:5px solid var(--green)">
-      <p style="margin:0 0 4px;font-weight:700;color:var(--navy)">ТОВ «Шкільний Дім»</p>
-      <p style="margin:0;color:var(--muted);font-size:14.5px">вул. Соборності, 15, м. Миргород, Полтавська обл., 37600 · тел. (05355) 4-11-22 · school-house@example.com</p>
-      <hr style="border:0;border-top:1px solid var(--line);margin:16px 0">
-      <p style="margin:0 0 12px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
-        <span>17.09.2026 № 118/03-07</span>
-        <span style="text-align:right">Директору ТОВ «ОсвітаТех»<br>Олені Вікторівні Ковальчук<br>вул. Польова, 3, м. Київ, 02000</span>
-      </p>
-      <p style="margin:0 0 14px;font-weight:700;color:var(--navy)">Щодо постачання комп’ютерного обладнання</p>
-      <p style="margin:0 0 10px"><b>Шановна Олено Вікторівно!</b></p>
-      <p style="margin:0 0 10px">У зв’язку з підготовкою шкільної IT-лабораторії до нового навчального року звертаємось щодо строків постачання обладнання за договором № 14 від 02.09.2026.</p>
-      <p style="margin:0 0 10px">Станом на 15.09.2026 отримано 6 із 20 замовлених комплектів. Відповідно до п. 3.2 договору решта мала надійти до 10.09.2026. Просимо повідомити причини затримки та підтвердити оновлений графік поставки, а також надіслати видаткові документи на отриману партію.</p>
-      <p style="margin:0 0 16px">Відповідь просимо надіслати до 22.09.2026 на адресу school-house@example.com. Заздалегідь вдячні за оперативне реагування.</p>
-      <p style="margin:0 0 4px">З повагою,</p>
-      <p style="margin:0 0 14px">Директор ТОВ «Шкільний Дім» &nbsp; ____________ &nbsp; І. П. Мельник</p>
-      <p style="margin:0;color:var(--muted);font-size:14.5px">Виконавець: заступник директора Сергій Олегович Кравець, тел. +380 67 555 12 34, s.kravets@example.com</p>
+    <div class="card" style="border-left:5px solid var(--green);position:relative">
+      <button class="copy-btn" id="copy-btn" onclick="copyLetterText()" title="Скопіювати текст листа">📋 Скопіювати текст</button>
+      <div id="letter-content">
+        <p style="margin:0 0 4px;font-weight:700;color:var(--navy)">ТОВ «Шкільний Дім»</p>
+        <p style="margin:0;color:var(--muted);font-size:14.5px">вул. Соборності, 15, м. Миргород, Полтавська обл., 37600 · тел. (05355) 4-11-22 · school-house@example.com</p>
+        <hr style="border:0;border-top:1px solid var(--line);margin:16px 0">
+        <p style="margin:0 0 12px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+          <span>17.09.2026 № 118/03-07</span>
+          <span style="text-align:right">Директору ТОВ «ОсвітаТех»<br>Олені Вікторівні Ковальчук<br>вул. Польова, 3, м. Київ, 02000</span>
+        </p>
+        <p style="margin:0 0 14px;font-weight:700;color:var(--navy)">Щодо постачання комп’ютерного обладнання</p>
+        <p style="margin:0 0 10px"><b>Шановна Олено Вікторівно!</b></p>
+        <p style="margin:0 0 10px">У зв’язку з підготовкою шкільної IT-лабораторії до нового навчального року звертаємось щодо строків постачання обладнання за договором № 14 від 02.09.2026.</p>
+        <p style="margin:0 0 10px">Станом на 15.09.2026 отримано 6 із 20 замовлених комплектів. Відповідно до п. 3.2 договору решта мала надійти до 10.09.2026. Просимо повідомити причини затримки та підтвердити оновлений графік поставки, а також надіслати видаткові документи на отриману партію.</p>
+        <p style="margin:0 0 16px">Відповідь просимо надіслати до 22.09.2026 на адресу school-house@example.com. Заздалегідь вдячні за оперативне реагування.</p>
+        <p style="margin:0 0 4px">З повагою,</p>
+        <p style="margin:0 0 14px">Директор ТОВ «Шкільний Дім» &nbsp; ____________ &nbsp; І. П. Мельник</p>
+        <p style="margin:0;color:var(--muted);font-size:14.5px">Виконавець: заступник директора Сергій Олегович Кравець, тел. +380 67 555 12 34, s.kravets@example.com</p>
+      </div>
     </div>
   </section>
 
@@ -921,10 +946,65 @@
     <div class="col">
       <p><b>Зробили в класі:</b> _______________</p>
       <p><b>Дата публікації сторінки:</b> 17.09.2026</p>
-      <p><b>Оцінка за практичну частину:</b> _______________</p>
+      <p><b>Онлайн на GitHub Pages:</b> <a href="https://smightyys-maker.github.io/dilove-lystuvannya/" target="_blank" rel="noopener">smightyys-maker.github.io/dilove-lystuvannya</a></p>
+      <p><b>Репозиторій:</b> <a href="https://github.com/smightyys-maker/dilove-lystuvannya" target="_blank" rel="noopener">smightyys-maker/dilove-lystuvannya</a></p>
     </div>
   </div>
 </footer>
+
+<!-- Кнопка повернення вгору -->
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Повернутися вгору" aria-label="Повернутися вгору">↑</button>
+
+<script>
+  // Копіювання зразка листа
+  function copyLetterText() {
+    const letterEl = document.getElementById('letter-content');
+    if (!letterEl) return;
+    const text = letterEl.innerText.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copy-btn');
+      if (btn) {
+        btn.classList.add('copied');
+        btn.innerHTML = '✓ Скопійовано!';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = '📋 Скопіювати текст';
+        }, 2200);
+      }
+    }).catch(err => {
+      console.error('Не вдалося скопіювати:', err);
+    });
+  }
+
+  // Відображення кнопки "Вгору" та підсвічування активного пункту меню
+  const backToTopBtn = document.getElementById('back-to-top');
+  const navLinks = document.querySelectorAll('nav.toc a');
+  const sections = document.querySelectorAll('main section[id]');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.style.display = 'flex';
+    } else {
+      backToTopBtn.style.display = 'none';
+    }
+
+    let currentId = '';
+    const scrollPos = window.scrollY + 140;
+    sections.forEach(sec => {
+      if (sec.offsetTop <= scrollPos) {
+        currentId = sec.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === '#' + currentId) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
